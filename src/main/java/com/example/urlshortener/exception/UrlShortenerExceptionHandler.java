@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class UrlShortenerExceptionHandler {
 
     @ExceptionHandler
-    public ResponseEntity<ErrorResponse> handleException(ShortUrlNotFoundException exc){
+    public ResponseEntity<ErrorResponse> handleException(ShortUrlNotFoundException exc) {
         ErrorResponse error = new ErrorResponse();
         error.setStatus(HttpStatus.NOT_FOUND.value());
         error.setMessage(exc.getMessage());
@@ -19,7 +19,7 @@ public class UrlShortenerExceptionHandler {
     }
 
     @ExceptionHandler
-    public ResponseEntity<ErrorResponse> handleException(InvalidUrlException exc){
+    public ResponseEntity<ErrorResponse> handleException(InvalidUrlException exc) {
         ErrorResponse error = new ErrorResponse();
         error.setStatus(HttpStatus.BAD_REQUEST.value());
         error.setMessage(exc.getMessage());
