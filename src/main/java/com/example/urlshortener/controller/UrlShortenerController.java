@@ -4,7 +4,7 @@ import com.example.urlshortener.common.Utils;
 import com.example.urlshortener.dto.FullUrlDto;
 import com.example.urlshortener.dto.UrlResponseDto;
 import com.example.urlshortener.service.ShortUrlService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,14 +13,10 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/")
+@RequiredArgsConstructor
 public class UrlShortenerController {
 
-    private ShortUrlService shortUrlService;
-
-    @Autowired
-    public UrlShortenerController(ShortUrlService shortUrlService) {
-        this.shortUrlService = shortUrlService;
-    }
+    private final ShortUrlService shortUrlService;
 
     @PostMapping(value = "/shorten-url")
     public ResponseEntity<UrlResponseDto> shortenUrl(@Valid @RequestBody FullUrlDto urlRequest,

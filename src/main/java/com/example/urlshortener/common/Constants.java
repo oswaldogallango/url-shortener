@@ -1,8 +1,9 @@
 package com.example.urlshortener.common;
 
-import lombok.experimental.UtilityClass;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
-@UtilityClass
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Constants {
 
     public static final String ERROR_INVALID_BASE_URL = "L'URL de base introuvable";

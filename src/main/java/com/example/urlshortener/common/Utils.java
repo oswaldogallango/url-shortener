@@ -1,7 +1,8 @@
 package com.example.urlshortener.common;
 
 import com.example.urlshortener.exception.InvalidUrlException;
-import lombok.experimental.UtilityClass;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.MalformedURLException;
@@ -10,7 +11,7 @@ import java.net.URL;
 
 import static com.example.urlshortener.common.Constants.ERROR_INVALID_BASE_URL;
 
-@UtilityClass
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Slf4j
 public class Utils {
 

@@ -7,21 +7,17 @@ import com.example.urlshortener.exception.InvalidUrlException;
 import com.example.urlshortener.exception.ShortUrlNotFoundException;
 import com.example.urlshortener.model.ShortUrlRegistry;
 import com.example.urlshortener.repository.ShortUrlRepository;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.example.urlshortener.common.Constants.*;
 
 @Service
+@RequiredArgsConstructor
 public class ShortUrlServiceImpl implements ShortUrlService {
 
-    private ShortUrlRepository shortUrlRepository;
-
-    @Autowired
-    public ShortUrlServiceImpl(ShortUrlRepository shortUrlRepository) {
-        this.shortUrlRepository = shortUrlRepository;
-    }
+    private final ShortUrlRepository shortUrlRepository;
 
     /**
      * Génère une URL raccourcie à partir d'une URL complète. Si l'URL complète
